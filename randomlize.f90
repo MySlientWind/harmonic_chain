@@ -20,7 +20,7 @@ contains
         !--------------------------------------------------------------------
         use pair; use atoms; use energy_calculate
         implicit none
-        real(kind=8) :: delta_x = 0.005d0
+        real(kind=8) :: delta_x = 0.01d0
         real(kind=8) :: random_x(natom + 3), x_old(natom + 3), x_new(natom + 3)
         real(kind=8) :: r_r, r_x, r_atom, h1, h2
         integer(kind=4) :: atom

@@ -56,6 +56,7 @@ contains
         dotv(interact_atom_reservior + 1) = dotv(interact_atom_reservior + 1)&
         &- pair_force(x(interact_atom_system + natom_reservior + 2) - x(interact_atom_reservior + 1)&
         &- dble(interact_atom_system - interact_atom_reservior), k_int)
+        
         dotv(interact_atom_system + natom_reservior + 2) = dotv(interact_atom_system + natom_reservior + 2)&
         &+ pair_force(x(interact_atom_system + natom_reservior + 2) - x(interact_atom_reservior + 1)&
         &- dble(interact_atom_system - interact_atom_reservior), k_int)
