@@ -43,10 +43,11 @@ program main!markov interalated
         e_w_whole = 0d0
         x = x_init
         !$OMP PARALLEL DO DEFAULT(PRIVATE) SCHEDULE(DYNAMIC) SHARED(point_number)&
-        !$OMP PRIVATE(i, j, x, v, e_ini, e_fin, deltae)&
+        !$OMP PRIVATE(i, j, x, v, x_init, e_ini, e_fin, deltae)&
         !$OMP NUM_THREADS(n_threads) REDUCTION(+:e_w_whole)
         do i = 1, ensemble_number
-            x = random_x(x)
+            x_init = random_x(x_init)
+            x = x_init
             v = random_v()
             e_ini = energy(x, v) !before rk, compute each initial energy of every process
             do j = 1, 10000*(point_number - 1)
