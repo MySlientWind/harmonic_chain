@@ -41,9 +41,8 @@ program main!markov interalated
         length_point(point_number) = 4d0 - dble(point_number - 1)*0.1d0
         rho(point_number) = dble(natom_system)/length_point(point_number)
         e_w_whole = 0d0
-        x = x_init
-        !$OMP PARALLEL DO DEFAULT(PRIVATE) SCHEDULE(DYNAMIC) SHARED(point_number)&
-        !$OMP PRIVATE(i, j, x, v, x_init, e_ini, e_fin, deltae)&
+        !$OMP PARALLEL DO DEFAULT(PRIVATE) SCHEDULE(DYNAMIC) SHARED(point_number, x_init)&
+        !$OMP PRIVATE(i, j, x, v, e_ini, e_fin, deltae)&
         !$OMP NUM_THREADS(n_threads) REDUCTION(+:e_w_whole)
         do i = 1, ensemble_number
             x_init = random_x(x_init)
