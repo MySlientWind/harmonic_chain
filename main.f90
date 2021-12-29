@@ -6,7 +6,7 @@ include 'randomlize.f90'
 program main!markov interalated
     use atoms; use integrate; use pair; use energy_calculate; use randomlize; use omp_lib
     implicit none
-    integer(kind=4) :: j, i, point_number, ensemble_number = 100, point_number_max = 11!0
+    integer(kind=4) :: j, i, point_number, ensemble_number = 100, point_number_min = 1, point_number_max = 11!0
     real(kind=8) :: x_init(natom + 3), x(natom + 3), v(natom + 3)
     integer :: n_threads = 10
     real(kind=8) :: e_w_whole = 0d0
@@ -36,7 +36,7 @@ program main!markov interalated
     open (unit=17, file='./data/time.txt')
     open (unit=15, file='./data/deltaf.txt')
 
-    do point_number = 1, point_number_max
+    do point_number = point_number_min, point_number_max
         write (*, *) point_number
         length_point(point_number) = 4d0 - dble(point_number - 1)*0.1d0
         rho(point_number) = dble(natom_system)/length_point(point_number)
