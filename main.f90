@@ -58,7 +58,7 @@ program main!markov interalated
         end do
         !$OMP END PARALLEL DO
         e_w_ave = e_w_whole/dble(ensemble_number)
-        delta_f(point_number) = -log(e_w_ave)/beta/natom_system
+        delta_f(point_number) = -log(e_w_ave)/beta
         write (15, *) rho(point_number), delta_f(point_number)
     end do
     call cpu_time(finish)
