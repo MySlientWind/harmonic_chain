@@ -1,2 +1,2 @@
 # harmonic_chain
-For Shuo;s project
+For Shuo's project
