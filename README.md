@@ -1,2 +1,2 @@
 # harmonic_chain
-For Shuo's project
+Parallel computation use openMP to calculate harmonic chain.
